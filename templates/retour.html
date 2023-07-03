@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask</title>
+</head>
+<body>
+    <!-- Implémentation des variable créé dans main.py pour un rappel des données entrées dans le formulaire. -->
+    <h1>Merci de nous avoir contacté</h1>
+    <h1>Nous vous contacterons dans les plus bref delais</h1>
+    <h2>Voici vos infos</h2>
+    <p>Nom : {{ nom }}</p>
+    <p>Prénom : {{ prenom }}</p>
+    <p>Email : {{ email }}</p>
+    <p>Pays : {{ pays }}</p>
+    <p>Message : {{ message }}</p>
+    <p>Genre : {{ genre }}</p>
+    <p>Sujet : {% for sujet in sujets %}{{ sujet }}{% endfor %}</p>  <!-- C'est un moyen de "codé" en python dans html -->
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask</title>
+</head>
+<body>
+    <!-- Titre du formulire et implémentation de la fonction créé sur main.py -->
+    <h1>Bienvenue sur mon formulaire</h1>
+
+    <!-- ici j'en "amené ma variable de main.py" permet de faire le lien entre html et python -->
+    <form action="{{ url_for('form_valide') }}" method="POST"> 
+        <p>
+            <!--Nom et prénom -->
+            <label for="nom">Nom : </label>
+            <input type="text" name="nom" id="nom">
+        </p>
+        <p>
+            <label for="prenom">Prénom : </label>
+            <input type="text" name="prenom" id="prenom">
+        </p>
+        <p>
+            <!-- Email -->
+            <label for="email">Email : </label>
+            <input type="text" name="email" id="email">
+        </p>
+        <p>
+            <!-- Choix des pays -->
+            <label for="pays">Pays</label>
+            <select name="pays" id="pays">
+                <option value="">-- Sélectionnez un pays --</option>
+                <option value="France">France</option>
+                <option value="Angleterre">Angleterre</option>
+                <option value="Belgique">Belgique</option>
+                <option value="Russie">Russie</option>
+                <option value="Chine">Chine</option>
+            </select>
+        </p>
+        <p>
+            <!-- Zone de texte -->
+            <label for="message">Votre message :</label><br />
+            <textarea name="message" id="message" rows="4" cols="30" ></textarea>
+        </p>
+        <p>
+            <!-- Choix de genre -->
+            <!-- Mettre le même attribut a "name" permet de forcer un seul choix.-->
+            Quel est votre genre ?
+            <input type="radio" name="genre" value="Homme" id="choix1">
+            <label for="choix1">Homme</label>
+            <input type="radio" name="genre" value="Femme" id="choix2">
+            <label for="choix2">Femme</label>  
+        </p>
+        <p>
+            <!-- Sujet en case a cocher "pas obligatoire" -->
+            <label>Sujets:</label>
+            <input type="checkbox" name="sujets" value="Réparation">
+            <label for="Réparation">Réparation</label>
+            <input type="checkbox" name="sujets" value="Commande">
+            <label for="Commande">Commande</label>
+            <input type="checkbox" name="sujets" value="Autres">
+            <label for="Autres">Autres</label>
+        </p>
+        <!-- Champ de formulaire honeypot (invisible pour les utilisateurs) -->
+        <div style="display:none;">
+            <label for="honeypot">Ne pas remplir ce champ :</label>
+            <input type="text" id="honeypot" name="honeypot">
+        </div>
+        <p>
+            <!-- Bouton envoyé -->
+            <input type="submit" value="Envoyer">
+        </p>
+    </form>
+</body>
+</html>
